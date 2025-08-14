@@ -1,44 +1,37 @@
-//
-//  StatCards.swift
-//  The23MinRule
-//
-//  Created by Karim Mufti on 8/13/25.
-//
-
-import Foundation
+// Features/Home/StatCards.swift
 import SwiftUI
 
 struct StreakCard: View {
-    var streak: Int
+    @ObservedObject var store: StreakStore
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text("Day Streak")
-                .font(FontToken.label)
-                .foregroundColor(.appMuted)
-            HStack(alignment: .firstTextBaseline, spacing: 8) {
-                Text("\(streak)")
-                    .font(.system(size: 32, weight: .semibold, design: .rounded))
-                Text("days").foregroundColor(.appMuted)
+        HStack(alignment: .top, spacing: 12) {
+            // Left: label + number, pinned to top
+            VStack(alignment: .leading, spacing: 6) {
+                Text("Day Streak")
+                    .font(FontToken.label)
+                    .foregroundColor(.appMuted)
+
+                HStack(alignment: .firstTextBaseline, spacing: 8) {
+                    Text("\(store.currentStreak)")
+                        .font(.system(size: 80, weight: .semibold, design: .rounded))
+                    Text("days").foregroundColor(.appMuted)
+                }
             }
-        }
-        .cardStyle()
-    }
-}
+            .alignmentGuide(.top) { d in d[.top] }   // keep this stack’s top flush
 
-struct LastResultCard: View {
-    var lastResult: String
+            Spacer(minLength: 12)
 
-    var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text("Last Session")
-                .font(FontToken.label)
-                .foregroundColor(.appMuted)
-            Text(lastResult)
-                .font(.system(size: 24, weight: .semibold, design: .rounded))
-                .foregroundColor(lastResult == "Resisted" ? .appSuccess :
-                                 (lastResult == "Relapsed" ? .appWarning : .appText))
+            // Right: compact grid, no scroll (so no vertical padding), fewer weeks
+            StreakGrid(store: store,
+                       weeks: 12,        // ⬅️ fewer columns (reduces width from the left)
+                       cell: 14,
+                       spacing: 3,
+                       scrollable: false,  // ⬅️ no extra vertical padding
+                       interactive: false)
+                .alignmentGuide(.top) { d in d[.top] } // align grid’s top to the HStack top
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
         .cardStyle()
     }
 }
