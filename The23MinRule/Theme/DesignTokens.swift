@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 enum FontToken {
-    static let bigNumber = Font.system(size: 56, weight: .semibold, design: .rounded)
+    static let bigNumber = Font.system(size: 60, weight: .bold,   design: .default)
     static let title     = Font.system(size: 22, weight: .semibold, design: .rounded)
     static let body      = Font.system(size: 16, weight: .regular, design: .rounded)
     static let label     = Font.system(size: 13, weight: .medium, design: .rounded)

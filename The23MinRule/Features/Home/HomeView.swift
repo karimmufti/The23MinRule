@@ -39,6 +39,8 @@ struct HomeView: View {
 
                         Text(timer.state.formattedRemaining)
                             .font(FontToken.bigNumber)
+                              .fontWidth(.condensed)
+                              .monospacedDigit()
                             .foregroundColor(.appPrimary) // red digits; swap to .appText for white
                             .monospacedDigit()
                             .glow(color: .appPrimary,
