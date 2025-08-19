@@ -8,6 +8,10 @@ struct HomeView: View {
     @State private var pulse: Bool = false
     private var secondsLeft: Int { max(0, Int(timer.state.remaining)) }
 
+    // NEW: reflection control
+    @State private var showReflection = false
+    @State private var endedEarly = false
+
     // tick animation tuning
     private let tickOn:  Double = 0.07   // quick pop
     private let tickOff: Double = 0.06   // quick release
@@ -39,8 +43,8 @@ struct HomeView: View {
 
                         Text(timer.state.formattedRemaining)
                             .font(FontToken.bigNumber)
-                              .fontWidth(.condensed)
-                              .monospacedDigit()
+                            .fontWidth(.condensed)
+                            .monospacedDigit()
                             .foregroundColor(.appPrimary) // red digits; swap to .appText for white
                             .monospacedDigit()
                             .glow(color: .appPrimary,
@@ -74,34 +78,48 @@ struct HomeView: View {
                     // Buttons (single, full-width)
                     VStack(spacing: 14) {
                         if timer.state.phase == .running {
-                            BigButton(title: "End Early") { timer.stop() }
-                                .frame(maxWidth: .infinity)
+                            BigButton(title: "Give Up") {
+                                endedEarly = true            // ← mark as early stop
+                                timer.stop()
+                            }
+                            .frame(maxWidth: .infinity)
                         } else if timer.state.phase == .finished {
-                            BigButton(title: "Reset") { timer.reset() }
-                                .frame(maxWidth: .infinity)
+                            BigButton(title: "Reset") {
+                                endedEarly = false          // ← clear flag
+                                timer.reset()
+                            }
+                            .frame(maxWidth: .infinity)
                         } else {
-                            BigButton(title: "Start 23") { timer.start() }
-                                .frame(maxWidth: .infinity)
+                            BigButton(title: "Start 23") {
+                                endedEarly = false          // ← clear flag
+                                timer.start()
+                            }
+                            .frame(maxWidth: .infinity)
                         }
                     }
                     .padding(.horizontal)
 
-                    // DAY STREAK
-                    // DAY STREAK (card now includes the compact grid on the right)
+                    // DAY STREAK (card includes compact grid on the right)
                     StreakCard(store: streak)
                         .padding(.horizontal)
-
 
                     Spacer(minLength: 40)
                 }
                 .padding(.top, 24)
             }
         }
-        // Auto-mark today complete when a session finishes (tweak later with reflection)
+        // Show reflection ONLY when the timer finishes naturally
         .onChange(of: timer.state.phase) { _, newPhase in
-            if newPhase == .finished {
-                streak.markTodayComplete()
+            if newPhase == .finished && !endedEarly {
+                showReflection = true
             }
+        }
+        .sheet(isPresented: $showReflection) {
+            ReflectionSheet(
+                onResisted: { streak.markTodayComplete() },
+                onCaved: { streak.unmarkToday() } // or do nothing
+            )
+            .interactiveDismissDisabled(true)
         }
     }
 }

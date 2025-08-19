@@ -11,10 +11,10 @@ import Foundation
 enum TimerPhase { case idle, running, finished }
 
 struct TimerState {
-    var duration: TimeInterval = 23 * 60
+    var duration: TimeInterval = 10
     var startDate: Date? = nil
     var endDate: Date? = nil
-    var remaining: TimeInterval = 23 * 60
+    var remaining: TimeInterval = 10
     var phase: TimerPhase = .idle
 
     var progress: Double {
@@ -23,8 +23,11 @@ struct TimerState {
     }
 
     var formattedRemaining: String {
-        let m = Int(remaining) / 60
-        let s = Int(remaining) % 60
+        // show 00:00 only when remaining == 0
+        let totalSeconds = max(0, Int(ceil(remaining)))
+        let m = totalSeconds / 60
+        let s = totalSeconds % 60
         return String(format: "%02d:%02d", m, s)
+
     }
 }

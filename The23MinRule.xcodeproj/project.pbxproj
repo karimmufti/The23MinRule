@@ -6,14 +6,65 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		AD819F6E2E540B02008CA8B4 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD819F6D2E540B02008CA8B4 /* WidgetKit.framework */; };
+		AD819F702E540B02008CA8B4 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD819F6F2E540B02008CA8B4 /* SwiftUI.framework */; };
+		AD819F812E540B04008CA8B4 /* The23WidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AD819F6B2E540B01008CA8B4 /* The23WidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AD819F7F2E540B04008CA8B4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AD819F342E4D5776008CA8B4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AD819F6A2E540B01008CA8B4;
+			remoteInfo = The23WidgetsExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AD819F862E540B04008CA8B4 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				AD819F812E540B04008CA8B4 /* The23WidgetsExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		AD819F3C2E4D5776008CA8B4 /* The23MinRule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = The23MinRule.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD819F6B2E540B01008CA8B4 /* The23WidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = The23WidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD819F6D2E540B02008CA8B4 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		AD819F6F2E540B02008CA8B4 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		AD819F822E540B04008CA8B4 /* Exceptions for "The23Widgets" folder in "The23WidgetsExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = AD819F6A2E540B01008CA8B4 /* The23WidgetsExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		AD819F3E2E4D5776008CA8B4 /* The23MinRule */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = The23MinRule;
+			sourceTree = "<group>";
+		};
+		AD819F712E540B02008CA8B4 /* The23Widgets */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				AD819F822E540B04008CA8B4 /* Exceptions for "The23Widgets" folder in "The23WidgetsExtension" target */,
+			);
+			path = The23Widgets;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -26,6 +77,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AD819F682E540B01008CA8B4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD819F702E540B02008CA8B4 /* SwiftUI.framework in Frameworks */,
+				AD819F6E2E540B02008CA8B4 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -33,6 +93,8 @@
 			isa = PBXGroup;
 			children = (
 				AD819F3E2E4D5776008CA8B4 /* The23MinRule */,
+				AD819F712E540B02008CA8B4 /* The23Widgets */,
+				AD819F6C2E540B02008CA8B4 /* Frameworks */,
 				AD819F3D2E4D5776008CA8B4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,8 +103,18 @@
 			isa = PBXGroup;
 			children = (
 				AD819F3C2E4D5776008CA8B4 /* The23MinRule.app */,
+				AD819F6B2E540B01008CA8B4 /* The23WidgetsExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		AD819F6C2E540B02008CA8B4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AD819F6D2E540B02008CA8B4 /* WidgetKit.framework */,
+				AD819F6F2E540B02008CA8B4 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -55,10 +127,12 @@
 				AD819F382E4D5776008CA8B4 /* Sources */,
 				AD819F392E4D5776008CA8B4 /* Frameworks */,
 				AD819F3A2E4D5776008CA8B4 /* Resources */,
+				AD819F862E540B04008CA8B4 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				AD819F802E540B04008CA8B4 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				AD819F3E2E4D5776008CA8B4 /* The23MinRule */,
@@ -69,6 +143,28 @@
 			productName = The23MinRule;
 			productReference = AD819F3C2E4D5776008CA8B4 /* The23MinRule.app */;
 			productType = "com.apple.product-type.application";
+		};
+		AD819F6A2E540B01008CA8B4 /* The23WidgetsExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD819F832E540B04008CA8B4 /* Build configuration list for PBXNativeTarget "The23WidgetsExtension" */;
+			buildPhases = (
+				AD819F672E540B01008CA8B4 /* Sources */,
+				AD819F682E540B01008CA8B4 /* Frameworks */,
+				AD819F692E540B01008CA8B4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				AD819F712E540B02008CA8B4 /* The23Widgets */,
+			);
+			name = The23WidgetsExtension;
+			packageProductDependencies = (
+			);
+			productName = The23WidgetsExtension;
+			productReference = AD819F6B2E540B01008CA8B4 /* The23WidgetsExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -81,6 +177,9 @@
 				LastUpgradeCheck = 1640;
 				TargetAttributes = {
 					AD819F3B2E4D5776008CA8B4 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					AD819F6A2E540B01008CA8B4 = {
 						CreatedOnToolsVersion = 16.4;
 					};
 				};
@@ -100,12 +199,20 @@
 			projectRoot = "";
 			targets = (
 				AD819F3B2E4D5776008CA8B4 /* The23MinRule */,
+				AD819F6A2E540B01008CA8B4 /* The23WidgetsExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		AD819F3A2E4D5776008CA8B4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD819F692E540B01008CA8B4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -122,7 +229,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AD819F672E540B01008CA8B4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AD819F802E540B04008CA8B4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AD819F6A2E540B01008CA8B4 /* The23WidgetsExtension */;
+			targetProxy = AD819F7F2E540B04008CA8B4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		AD819F452E4D5778008CA8B4 /* Debug */ = {
@@ -298,6 +420,58 @@
 			};
 			name = Release;
 		};
+		AD819F842E540B04008CA8B4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = The23Widgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = The23Widgets;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Never-Miss-Dev.The23MinRule.The23Widgets";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AD819F852E540B04008CA8B4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = The23Widgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = The23Widgets;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Never-Miss-Dev.The23MinRule.The23Widgets";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -315,6 +489,15 @@
 			buildConfigurations = (
 				AD819F482E4D5778008CA8B4 /* Debug */,
 				AD819F492E4D5778008CA8B4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AD819F832E540B04008CA8B4 /* Build configuration list for PBXNativeTarget "The23WidgetsExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD819F842E540B04008CA8B4 /* Debug */,
+				AD819F852E540B04008CA8B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
