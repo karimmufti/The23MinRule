@@ -1,15 +1,16 @@
 //
-//  StreakScore.swift
+//  StreakStore.swift
 //  The23MinRule
 //
 //  Created by Karim Mufti on 8/14/25.
+//  Updated: counts through yesterday if today isn’t completed.
 //
 
 import Foundation
 import Combine
 
 final class StreakStore: ObservableObject {
-    private let key = "streak_days_v1" // UserDefaults key
+    private let key = "streak_days_v1"              // UserDefaults key
     private let cal = Calendar.current
 
     // yyyy-MM-dd for stable, timezone-safe day keys
@@ -21,7 +22,10 @@ final class StreakStore: ObservableObject {
         return d
     }()
 
+    // Persisted set of completed day keys (e.g., "2025-08-19")
     @Published private(set) var days: Set<String>
+
+    // MARK: - Init
 
     init() {
         if let arr = UserDefaults.standard.array(forKey: key) as? [String] {
@@ -43,7 +47,11 @@ final class StreakStore: ObservableObject {
 
     func toggle(_ date: Date) {
         let k = keyFor(date)
-        if days.contains(k) { days.remove(k) } else { days.insert(k) }
+        if days.contains(k) {
+            days.remove(k)
+        } else {
+            days.insert(k)
+        }
         persist()
     }
 
@@ -61,18 +69,32 @@ final class StreakStore: ObservableObject {
         days.contains(keyFor(date))
     }
 
-    /// Count of consecutive completed days ending **today**
-    var currentStreak: Int {
-        var count = 0
-        var d = cal.startOfDay(for: Date())
-        while isCompleted(d) {
-            count += 1
-            d = cal.date(byAdding: .day, value: -1, to: d)!
-        }
-        return count
+    /// Count of consecutive completed days ending **today if completed**, otherwise **yesterday**.
+    var currentStreak: Int { currentStreak(asOf: Date()) }
+
+    /// Call this on launch / foreground / day-change to force views to recompute.
+    func refresh() {
+        // No state change occurs when a new day starts, so poke observers.
+        objectWillChange.send()
     }
 
     // MARK: - Helpers
+
+    private func currentStreak(asOf now: Date) -> Int {
+        var cursor = cal.startOfDay(for: now)
+
+        // If today isn't completed yet, start counting from yesterday.
+        if !isCompleted(cursor) {
+            cursor = cal.date(byAdding: .day, value: -1, to: cursor)!
+        }
+
+        var count = 0
+        while isCompleted(cursor) {
+            count += 1
+            cursor = cal.date(byAdding: .day, value: -1, to: cursor)!
+        }
+        return count
+    }
 
     private func keyFor(_ date: Date) -> String {
         StreakStore.df.string(from: cal.startOfDay(for: date))
@@ -82,3 +104,4 @@ final class StreakStore: ObservableObject {
         UserDefaults.standard.set(Array(days), forKey: key)
     }
 }
+
