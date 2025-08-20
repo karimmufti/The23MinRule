@@ -10,6 +10,10 @@
 		AD819F6E2E540B02008CA8B4 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD819F6D2E540B02008CA8B4 /* WidgetKit.framework */; };
 		AD819F702E540B02008CA8B4 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD819F6F2E540B02008CA8B4 /* SwiftUI.framework */; };
 		AD819F812E540B04008CA8B4 /* The23WidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AD819F6B2E540B01008CA8B4 /* The23WidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AD819F8A2E5411C4008CA8B4 /* TimerActivity+Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD819F892E5411C4008CA8B4 /* TimerActivity+Attributes.swift */; };
+		AD819F8B2E5411C4008CA8B4 /* TimerActivity+Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD819F892E5411C4008CA8B4 /* TimerActivity+Attributes.swift */; };
+		AD819F932E5412CB008CA8B4 /* TimerLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD819F922E5412CB008CA8B4 /* TimerLiveActivity.swift */; };
+		AD819F972E55780C008CA8B4 /* StartsStopIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD819F952E5577FD008CA8B4 /* StartsStopIntents.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +45,10 @@
 		AD819F6B2E540B01008CA8B4 /* The23WidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = The23WidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD819F6D2E540B02008CA8B4 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		AD819F6F2E540B02008CA8B4 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		AD819F882E540F7B008CA8B4 /* The23WidgetsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = The23WidgetsExtension.entitlements; sourceTree = "<group>"; };
+		AD819F892E5411C4008CA8B4 /* TimerActivity+Attributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimerActivity+Attributes.swift"; sourceTree = "<group>"; };
+		AD819F922E5412CB008CA8B4 /* TimerLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerLiveActivity.swift; sourceTree = "<group>"; };
+		AD819F952E5577FD008CA8B4 /* StartsStopIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartsStopIntents.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -51,11 +59,30 @@
 			);
 			target = AD819F6A2E540B01008CA8B4 /* The23WidgetsExtension */;
 		};
+		AD819F8D2E541260008CA8B4 /* Exceptions for "The23MinRule" folder in "The23WidgetsExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Assets.xcassets,
+				Theme/DesignTokens.swift,
+			);
+			target = AD819F6A2E540B01008CA8B4 /* The23WidgetsExtension */;
+		};
+		AD819F992E557C6B008CA8B4 /* Exceptions for "The23MinRule" folder in "The23MinRule" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = AD819F3B2E4D5776008CA8B4 /* The23MinRule */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		AD819F3E2E4D5776008CA8B4 /* The23MinRule */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				AD819F992E557C6B008CA8B4 /* Exceptions for "The23MinRule" folder in "The23MinRule" target */,
+				AD819F8D2E541260008CA8B4 /* Exceptions for "The23MinRule" folder in "The23WidgetsExtension" target */,
+			);
 			path = The23MinRule;
 			sourceTree = "<group>";
 		};
@@ -92,6 +119,10 @@
 		AD819F332E4D5776008CA8B4 = {
 			isa = PBXGroup;
 			children = (
+				AD819F952E5577FD008CA8B4 /* StartsStopIntents.swift */,
+				AD819F922E5412CB008CA8B4 /* TimerLiveActivity.swift */,
+				AD819F892E5411C4008CA8B4 /* TimerActivity+Attributes.swift */,
+				AD819F882E540F7B008CA8B4 /* The23WidgetsExtension.entitlements */,
 				AD819F3E2E4D5776008CA8B4 /* The23MinRule */,
 				AD819F712E540B02008CA8B4 /* The23Widgets */,
 				AD819F6C2E540B02008CA8B4 /* Frameworks */,
@@ -226,6 +257,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD819F972E55780C008CA8B4 /* StartsStopIntents.swift in Sources */,
+				AD819F8A2E5411C4008CA8B4 /* TimerActivity+Attributes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +266,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD819F932E5412CB008CA8B4 /* TimerLiveActivity.swift in Sources */,
+				AD819F8B2E5411C4008CA8B4 /* TimerActivity+Attributes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,10 +406,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = The23MinRule/The23MinRule.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FFBPCHH4GC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = The23MinRule/Info.plist;
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -398,10 +437,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = The23MinRule/The23MinRule.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FFBPCHH4GC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = The23MinRule/Info.plist;
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -425,12 +468,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = The23WidgetsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FFBPCHH4GC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = The23Widgets/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = The23Widgets;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -451,12 +497,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = The23WidgetsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FFBPCHH4GC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = The23Widgets/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = The23Widgets;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

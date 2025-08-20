@@ -13,6 +13,6 @@ struct The23WidgetsBundle: WidgetBundle {
     var body: some Widget {
         The23Widgets()
         The23WidgetsControl()
-        The23WidgetsLiveActivity()
     }
 }
+
