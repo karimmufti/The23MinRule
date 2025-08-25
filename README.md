@@ -19,7 +19,7 @@ By committing to just 23 minutes of focus, you can resist distractions, beat pro
 
 ## Screenshots / Test Vid
 
-<img width="418" height="882" alt="Screenshot 2025-08-24 at 7 29 24 PM" src="https://github.com/user-attachments/assets/43d23378-7d91-4918-8a0d-a0e41fbf58b9" />
+<img width="200" height="402" alt="Screenshot 2025-08-24 at 7 29 24 PM" src="https://github.com/user-attachments/assets/43d23378-7d91-4918-8a0d-a0e41fbf58b9" />
 
 
 https://github.com/user-attachments/assets/f2fea87c-b8ef-4a72-b1cc-f5f2c74cec7e
